@@ -136,6 +136,7 @@ main {
   ;
   color: transparent;
   background-clip: text;
+  -webkit-background-clip: text;
   font-weight: 800;
 }
 /* Footer Styles  */
