@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.6.0/remixicon.min.css" integrity="sha512-pI8MMQ9fC050RkbUOr8cJ75T5bYJpT1PAiML/7QZM6Fr74Ef6csO2/Cl92q+Qpxidm7WonXr6f+DbyxNHPGH8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" sizes="32x32" href="./assets/icons/spotify-icon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="/script.js" defer></script>
     <title>Vibrodo</title>
 </head>
 <body>
        <!-- Header Elements  -->
     <header>
         <div class="nav_cont">
-            <h2 class="search_text">Search</h2>
+            <h2 class="search_text">Vibrodo</h2>
             <div class="spotify_icon"><img src="./assets/icons/spotify-icon.svg"></div>
         </div>
         <div class="input_wrap">
-            <input type="text" class="search_input" placeholder="Artists, songs, or podcasts">
+            <input type="text" id="input_bar" class="search_input" placeholder="Artists, songs, or podcasts">
             <div class="search_icon"><i class="ri-search-2-line"></i></div>
         </div>
     </header>
@@ -27,7 +28,7 @@
             <h3 class="head_text">Your Top Songs</h3>
           <div class="songs_container">
                 <!-- Song-1  -->
-            <div class="song_card">
+            <div class="song_card" >
             <span class="song_name text_gradient">Song Name</span>
              <span class="play_icon"><i class="ri-play-circle-line"></i> </span>
             <span class="song_artist text_gradient">Artist Name</span>
@@ -50,7 +51,7 @@
               <div class="songs_container">
                 <!-- Song-1  -->
             <div class="song_card">
-            <span class="song_name text_gradient">Song Name</span>
+            <span class="song_name text_gradient">Song Name</span> 
              <span class="play_icon"><i class="ri-play-circle-line"></i> </span>
             <span class="song_artist text_gradient">Artist Name</span>
             </div>
@@ -67,13 +68,12 @@
                     <span class="song_artist text_gradient">Artist Name</span>
                     </div>
             
-            </div>
-
-            <!-- section 3   -->
+            </div>   
+                  <!-- Section 3  -->
             <div class="songs_container">
                 <!-- Song-1  -->
             <div class="song_card">
-            <span class="song_name text_gradient">Song Name</span>
+            <span class="song_name text_gradient">Song Name</span> 
              <span class="play_icon"><i class="ri-play-circle-line"></i> </span>
             <span class="song_artist text_gradient">Artist Name</span>
             </div>
@@ -89,6 +89,9 @@
                      <span class="play_icon"><i class="ri-play-circle-line"></i> </span>
                     <span class="song_artist text_gradient">Artist Name</span>
                     </div>
+            
+            </div>   
+            
             
             </div>
           </div>
@@ -97,20 +100,24 @@
 
     <footer>
         <div class="nav_wrapper">
+            <div class="prog_bar">
+                <input type="range" class="progress_bar" id="progress_bar" min="0" max="100" value="0">
+            </div>
             <div class="player">
-                <div class="player_love_icn"><i class="ri-heart-line"></i></div>
-                <div id="player_song_name">Song Name &deg <span class="player_artist_name">Artist Name</span></div>
-                <div class="player_play_btn"><i class="ri-play-circle-line"></i></div>
+                <div class="player_love_icn" id="heart"><i class="ri-heart-line"></i></div>
+                <div class="player_song_icons"><span class="previous_song" id="previous_song"><i class="ri-rewind-line"></i></span> <span class="player_song_name" id="song_name"> Song Name </span> &deg <span class="player_artist_name" id="artist_name">Artist Name</span> <span class="forward_song" id="next_song"><i class="ri-speed-line"></i></span></div>
+                <div class="player_play_btn" id="play_btn"><i class="ri-play-circle-line"></i></div>
             </div>
             <div class="foot_nav_container">
-             <div class="home_icon"><i class="ri-home-4-line"></i></div>
-             <div class="search_icon"><i class="ri-search-2-line"></i></div>
-             <div class="library_icon"><i class="ri-bar-chart-horizontal-line"></i></div>
+             <div class="home_icon foot_home_icon"><i class="ri-home-4-line"></i></div>
+             <div class="search_icon foot_search_icon"><i class="ri-search-2-line"></i></div>
+             <div class="library_icon foot_yourlib"><i class="ri-bar-chart-horizontal-line"></i></div>
             </div>
             <div class="icon_text_cont">
-                <div class="home_text" >Home</div>
-                <div class="home_text" >Search</div>
-                <div class="home_text" >Your Library</div>
+                <div class="home_text foot_home_icon" onclick={underDevelopment()}>Home</div>
+                    <div class="home_text foot_search_icon" onclick={underDevelopment()}>Search</div>
+                <div class="home_text foot_yourlib" onclick={underDevelopment()}>Your Library</div>
+              
              </div>
         </div>
 
