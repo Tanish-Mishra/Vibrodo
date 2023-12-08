@@ -1,5 +1,8 @@
+// import data from "./data/songs.json" assert {type: 'json'}
+
 // Some Important Id's
 let song_name = document.getElementById("song_name");
+let input_bar = document.getElementById("input_bar");
 let artist_name = document.getElementById("artist_name");
 let play_btn = document.getElementById("play_btn");
 let heart = document.getElementById("heart");
@@ -12,8 +15,8 @@ let progress_bar = document.getElementById("progress_bar");
 let footHomeIcon = document.querySelector(".foot_home_icon");
 let footSearchIcon = document.querySelector(".foot_search_icon");
 let footLibraryIcon = document.querySelector(".foot_yourlib");
-let nextSong = document.getElementById("next_song")
-let prevSong = document.getElementById("previous_song")
+let nextSong = document.getElementById("next_song");
+let prevSong = document.getElementById("previous_song");
 // Heart Color Changes to Red When Clicked
 
 heart.addEventListener("click", () => {
@@ -21,7 +24,7 @@ heart.addEventListener("click", () => {
 });
 
 function underDevelopment() {
-  alert("This Feature is Under Development");
+  alert("Feature is Under Development");
 }
 footHomeIcon.addEventListener("click", underDevelopment);
 footSearchIcon.addEventListener("click", underDevelopment);
@@ -29,51 +32,93 @@ footLibraryIcon.addEventListener("click", underDevelopment);
 
 let songs = [
   {
-    songName: "Lag Ja Gale",
-    artistName: "Lata Mageshkar",
+    songName: "Heeriye",
+    artistName: "Arijit Singh",
     songPath: "./assets/songs/one.mp3",
-    imagePath:
-      "https://images.unsplash.com/photo-1683009427041-d810728a7cb6?q=80&w=3086&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "https://i.ytimg.com/vi/Pn29xVZ0-cY/maxresdefault.jpg",
   },
   {
-    songName: "two",
-    artistName: "One Direction",
-    songPath: "./assets/songs/one.mp3",
-    imagePath:
-      "https://images.unsplash.com/photo-1701696602513-1bd43bee7c6d?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    songName: "Ashk",
+    artistName: "Honey Singh",
+    songPath: "./assets/songs/two.mp3",
+    imagePath: "https://i.ytimg.com/vi/7b_-fxRJQtU/maxresdefault.jpg",
   },
   {
-    songName: "three",
-    artistName: "One Directdion",
-    songPath: "./assets/songs/one.mp3",
+    songName: "Guli",
+    artistName: "Shreya Ghoshal",
+    songPath: "./assets/songs/three.mp3",
     imagePath:
-      "https://images.unsplash.com/photo-1701792719690-277632fe24c4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8",
+      "https://m.media-amazon.com/images/I/51OHR2vPNNL._UXNaN_FMjpg_QL85_.jpg",
   },
   {
-    songName: "four",
-    artistName: "One Direcdtion",
-    songPath: "./assets/songs/one.mp3",
+    songName: "Cheques",
+    artistName: "Shubh",
+    songPath: "./assets/songs/four.mp3",
+    imagePath: "https://i1.sndcdn.com/artworks-fgQCI3pFN0to-0-t500x500.jpg",
+  },
+  {
+    songName: "Kahani Suno 2.0",
+    artistName: "Kaifi Khalil",
+    songPath: "./assets/songs/five.mp3",
     imagePath:
-      "https://plus.unsplash.com/premium_photo-1700727327215-d29fdfcbb3f7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8",
+      "https://c.saavncdn.com/464/Kahani-Suno-2-0-Urdu-2022-20230629194127-500x500.jpg",
+  },
+  {
+    songName: "Khalasi",
+    artistName: "Achint",
+    songPath: "./assets/songs/six.mp3",
+    imagePath: "https://i.ytimg.com/vi/BbngZwOzdmk/hqdefault.jpg",
+  },
+  {
+    songName: "Maan Meri Jaan",
+    artistName: "King",
+    songPath: "./assets/songs/seven.mp3",
+    imagePath:
+      "https://m.media-amazon.com/images/I/516ZRaSCwcL._UXNaN_FMjpg_QL85_.jpg",
+  },
+  {
+    songName: "Tere Hawaale",
+    artistName: "Arijit Singh",
+    songPath: "./assets/songs/eight.mp3",
+    imagePath:
+      "https://c.saavncdn.com/119/Tere-Hawaale-From-Laal-Singh-Chaddha-Hindi-2022-20220804093945-500x500.jpg",
+  },
+  {
+    songName: "Mujhe Phir Kya Chaiye",
+    artistName: "Arijit Singh",
+    songPath: "./assets/songs/nine.mp3",
+    imagePath:
+      "https://i.scdn.co/image/ab67616d0000b273bf8097b2589277bd3d8f7a2d",
   },
 ];
-// To set all the values
 
-//    song_name_card.forEach((element, index) => {
-//     element.innerHTML = songs[index].songName
-//     // Here We Set Artist Name in the Song Card
-//     artist_name_card[index].innerHTML = songs[index].artistName
-// })
+// this does not work in firefox
+//  let  songs = JSON.parse(JSON.stringify(data))
+
+// fetch("./data/songs.json").then((response) => {
+//     return response.json()
+// }).then((data) => {
+//  songs = JSON.parse(JSON.stringify(data))
+// });
+
+// Update Song Name and Artist Name
+song_name_card.forEach((element, index) => {
+  element.innerHTML = songs[index].songName;
+  // Here We Set Artist Name in the Song Card
+  artist_name_card[index].innerHTML = songs[index].artistName;
+});
+// background Image setter
+song_card.forEach((element, index) => {
+  element.style.background = `url('${songs[index].imagePath}')`;
+
+  element.style.backgroundSize = "100% 15rem";
+  element.style.backgroundRepeat = "no-repeat";
+  // element.style.backgroundPosition = "center"
+});
 // To Play the Song
-let music = new Audio("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav");
-// song_card_play_btn[0].addEventListener('click', () => {
-//      music.play()
-//      song_name.innerHTML = songs[0].songName
-//     artist_name.innerHTML = songs[0].artistName
-// })
+let music = new Audio("./assets/songs/welcome.wav");
 
-
-
+let tempSong;
 function pauseIcon() {
   play_btn.innerHTML = '<i class="ri-pause-circle-fill"></i>';
 }
@@ -81,7 +126,8 @@ function playIcon() {
   play_btn.innerHTML = '<i class="ri-play-circle-line"></i>';
 }
 
-song_card_play_btn.forEach((element, index,arr) => {
+song_card_play_btn.forEach((element, index) => {
+  console.log("Entered Inside the each");
   function cardPauseIcon() {
     element.innerHTML = '<i class="ri-pause-circle-fill"></i>';
   }
@@ -90,38 +136,45 @@ song_card_play_btn.forEach((element, index,arr) => {
   }
 
   element.addEventListener("click", () => {
-     
+    progress_bar.value = 0;
+    tempSong = songs[index].songPath;
     if (music.paused || music.currentTime <= 0) {
-        music.src = "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav";
+      // To set all the elements icon to pause
+      song_card_play_btn.forEach((element, index) => {
+        element.innerHTML = '<i class="ri-play-circle-line"></i>';
+      });
+      music.src = `${tempSong}`;
       music.play();
       cardPauseIcon();
       pauseIcon();
       song_name.innerHTML = songs[index].songName;
       artist_name.innerHTML = songs[index].artistName;
     } else {
+      progress_bar.value = 0;
+      song_card_play_btn.forEach((element, index) => {
+        element.innerHTML = '<i class="ri-play-circle-line"></i>';
+      });
       music.pause();
+      //   music.play()
       playIcon();
       cardPlayIcon();
+      console.log("entered in else statement");
     }
-
-    play_btn.addEventListener("click", () => {
-        if (music.paused || music.currentTime <= 0) {
-          music.play();
-          pauseIcon();
-          cardPauseIcon();
-        } else {
-           music.pause();
-           playIcon();
-           cardPlayIcon();
-        }
-      });
-    
   });
-
-  
 });
 
- 
+play_btn.addEventListener("click", () => {
+  if (music.paused || music.currentTime <= 0) {
+    music.play();
+    pauseIcon();
+    cardPauseIcon();
+  } else {
+    music.pause();
+    console.log("pause");
+    playIcon();
+    cardPlayIcon();
+  }
+});
 
 // To Update the Progress Bar current time is in percentage
 music.addEventListener("timeupdate", () => {
@@ -135,6 +188,21 @@ progress_bar.addEventListener("change", () => {
   music.currentTime = (progress_bar.value * music.duration) / 100;
 });
 
-//   song_card[0].style.background = "url()"
+// Search song Functionality
 
-//    To Update the Song Name and Artist
+// function search() {
+//     let input = input_bar.value;
+//    input =   input.toLowerCase();
+//     let songSearch = document.getElementsByClassName("song_name")
+//     console.log(songSearch)
+//     for(let i = 0; i<input.length;i++ ) {
+//          if(!songSearch[i].innerHTML.toLowerCase().includes(input)) {
+//              document.getElementsByClassName("song_card")[i].style.visibility = "hidden";
+//          }
+//          else {
+//             document.getElementsByClassName("song_card")[i].style.visibility = "visible";
+//          }
+//     }
+// }
+
+// input_bar.addEventListener('keyup', search );

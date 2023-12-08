@@ -104,7 +104,7 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem;
-  background: url("https://cloudinary-marketing-res.cloudinary.com/images/w_1000,c_scale/v1679921049/Image_URL_header/Image_URL_header-png?_i=AA");
+  background: url("https://i.ytimg.com/vi/Pn29xVZ0-cY/maxresdefault.jpg");
   /* overflow: hidden; */
   margin: 1.5rem 3rem 0 0;
   height: 15rem;
@@ -112,6 +112,7 @@ main {
   border-radius: 10px;
   font-family: 600;
   background-size: cover;
+  /* background-position: ; */
   background-repeat: no-repeat;
 }
 .container .song_card .play_icon {
@@ -132,8 +133,11 @@ main {
 }
 
 .song_card .text_gradient {
-  background:  linear-gradient(90deg, hsla(0, 0%, 100%, 1) 44%, hsla(113, 100%, 28%, 1) 84%);
-  ;
+  background: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 1) 44%,
+    hsla(113, 100%, 28%, 1) 84%
+  );
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
@@ -245,5 +249,3 @@ footer {
     top: 9rem;
   }
 }
-
-

@@ -1,0 +1,65 @@
+[
+    {
+      "songName": "Heeriye",
+      "artistName": "Arijit Singh",
+      "songPath": "./assets/songs/one.mp3",
+      "imagePath":
+        "https://i.ytimg.com/vi/Pn29xVZ0-cY/maxresdefault.jpg"
+    },
+    {
+      "songName": "Ashk",
+      "artistName": "Honey Singh",
+      "songPath": "./assets/songs/two.mp3",
+      "imagePath":
+        "https://i.ytimg.com/vi/7b_-fxRJQtU/maxresdefault.jpg"
+    },
+    {
+      "songName": "Guli",
+      "artistName": "Shreya Ghoshal",
+      "songPath": "./assets/songs/three.mp3",
+      "imagePath":
+        "https://m.media-amazon.com/images/I/51OHR2vPNNL._UXNaN_FMjpg_QL85_.jpg"
+    },
+    {
+      "songName": "Cheques",
+      "artistName": "Shubh",
+      "songPath": "./assets/songs/four.mp3",
+      "imagePath":
+        "https://i1.sndcdn.com/artworks-fgQCI3pFN0to-0-t500x500.jpg"
+    },
+    {
+      "songName": "Kahani Suno 2.0",
+      "artistName": "Kaifi Khalil",
+      "songPath": "./assets/songs/five.mp3",
+      "imagePath":
+        "https://c.saavncdn.com/464/Kahani-Suno-2-0-Urdu-2022-20230629194127-500x500.jpg"
+    },
+    {
+      "songName": "Khalasi",
+      "artistName": "Achint",
+      "songPath": "./assets/songs/six.mp3",
+      "imagePath":
+        "https://i.ytimg.com/vi/BbngZwOzdmk/hqdefault.jpg"
+    },
+    {
+      "songName": "Maan Meri Jaan",
+      "artistName": "King",
+      "songPath": "./assets/songs/seven.mp3",
+      "imagePath":
+        "https://m.media-amazon.com/images/I/516ZRaSCwcL._UXNaN_FMjpg_QL85_.jpg"
+    },
+    {
+      "songName": "Tere Hawaale",
+      "artistName": "Arijit Singh",
+      "songPath": "./assets/songs/eight.mp3",
+      "imagePath":
+        "https://c.saavncdn.com/119/Tere-Hawaale-From-Laal-Singh-Chaddha-Hindi-2022-20220804093945-500x500.jpg"
+    },
+    {
+      "songName": "Mujhe Phir Kya Chaiye",
+      "artistName": "Arijit Singh",
+      "songPath": "./assets/songs/nine.mp3",
+      "imagePath":
+        "https://i.scdn.co/image/ab67616d0000b273bf8097b2589277bd3d8f7a2d"
+    }
+  ]
