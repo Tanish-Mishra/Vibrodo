@@ -127,7 +127,8 @@ function playIcon() {
 }
 
 song_card_play_btn.forEach((element, index) => {
-  console.log("Entered Inside the each");
+
+  
   function cardPauseIcon() {
     element.innerHTML = '<i class="ri-pause-circle-fill"></i>';
   }
@@ -158,23 +159,38 @@ song_card_play_btn.forEach((element, index) => {
       //   music.play()
       playIcon();
       cardPlayIcon();
-      console.log("entered in else statement");
     }
-  });
-});
 
-play_btn.addEventListener("click", () => {
-  if (music.paused || music.currentTime <= 0) {
-    music.play();
-    pauseIcon();
-    cardPauseIcon();
-  } else {
-    music.pause();
-    console.log("pause");
-    playIcon();
-    cardPlayIcon();
-  }
-});
+    play_btn.addEventListener("click", () => {
+        if (music.paused || music.currentTime <= 0) {
+
+          console.log("play btn entered in if statement");
+          music.play();
+          pauseIcon();
+          cardPauseIcon();
+          // cardPauseIcon();
+        } else {
+          console.log(" play btn entered in else statement");
+          song_card_play_btn.forEach((element, index) => {
+            element.innerHTML = '<i class="ri-play-circle-line"></i>';
+          });
+          music.pause();
+         
+          playIcon();
+          // cardPlayIcon();
+        }
+      });
+
+                     // To Play the Next Song 
+
+                     prevSong.addEventListener("click", () => {});
+    });
+
+  });
+
+  
+
+
 
 // To Update the Progress Bar current time is in percentage
 music.addEventListener("timeupdate", () => {
