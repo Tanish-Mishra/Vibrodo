@@ -126,17 +126,19 @@ function playIcon() {
   play_btn.innerHTML = '<i class="ri-play-circle-line"></i>';
 }
 
-song_card_play_btn.forEach((element, index) => {
+song_card_play_btn.forEach((element, index,allSong) => {
 
-  
+
   function cardPauseIcon() {
     element.innerHTML = '<i class="ri-pause-circle-fill"></i>';
   }
   function cardPlayIcon() {
     element.innerHTML = '<i class="ri-play-circle-line"></i>';
   }
-
+      
   element.addEventListener("click", () => {
+   // this value should be update evertime to one for previous song 
+
     progress_bar.value = 0;
     tempSong = songs[index].songPath;
     if (music.paused || music.currentTime <= 0) {
@@ -152,7 +154,7 @@ song_card_play_btn.forEach((element, index) => {
       artist_name.innerHTML = songs[index].artistName;
     } else {
       progress_bar.value = 0;
-      song_card_play_btn.forEach((element, index) => {
+      song_card_play_btn.forEach((element, index,) => {
         element.innerHTML = '<i class="ri-play-circle-line"></i>';
       });
       music.pause();
@@ -164,13 +166,13 @@ song_card_play_btn.forEach((element, index) => {
     play_btn.addEventListener("click", () => {
         if (music.paused || music.currentTime <= 0) {
 
-          console.log("play btn entered in if statement");
+
           music.play();
           pauseIcon();
           cardPauseIcon();
           // cardPauseIcon();
         } else {
-          console.log(" play btn entered in else statement");
+          
           song_card_play_btn.forEach((element, index) => {
             element.innerHTML = '<i class="ri-play-circle-line"></i>';
           });
@@ -182,8 +184,31 @@ song_card_play_btn.forEach((element, index) => {
       });
 
                      // To Play the Next Song 
+                     let currentIndexSong = 1; // To maintain index of song for previous 
+       prevSong.addEventListener("click", () => {
+        
+        console.log(currentIndexSong)
+                  if(music.currentTime > 0 || music.paused || music.currentTime <= 0) {
+                      
+                      music.src = songs[index-currentIndexSong].songPath 
+                      music.play()
+                      song_name.innerHTML = songs[index-currentIndexSong].songName;
+                     artist_name.innerHTML = songs[index-currentIndexSong].artistName;
+                     song_card_play_btn.forEach((element, index) => {
+                      element.innerHTML = '<i class="ri-play-circle-line"></i>';
+                    });
+                    allSong[index-currentIndexSong].innerHTML = '<i class="ri-pause-circle-fill"></i>';
+                    currentIndexSong++;
+                  console.log(currentIndexSong)
+                    if(currentIndexSong >= index ) {
+                      currentIndexSong = index;
+                    }
+                    pauseIcon();
 
-                     prevSong.addEventListener("click", () => {});
+                  } 
+
+                     });
+                 
     });
 
   });
