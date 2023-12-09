@@ -239,6 +239,38 @@ song_card_play_btn.forEach((element, index, allSong) => {
       }
     });
 
+    prevSong.addEventListener("click", () => {
+      play_btn.style.visibility = "hidden";
+      if (music.currentTime > 0 || music.paused || music.currentTime <= 0) {
+        // console.log(currentSongIndex)
+        for (let i = 0; i < songs.length; i++) {
+          if (currentSong == songs[i].songPath) {
+            currentSongIndex = i;
+            console.log(currentSongIndex);
+            currentSongIndex = currentSongIndex - 1;
+            console.log(currentSongIndex);
+            break;
+          }
+        }
+
+        console.log(currentSongIndex);
+        if (currentSongIndex <= 0) {
+          currentSongIndex = 0;
+        }
+        music.src = songs[currentSongIndex].songPath;
+        music.play();
+        song_name.innerHTML = songs[currentSongIndex].songName;
+        artist_name.innerHTML = songs[currentSongIndex].artistName;
+        song_card_play_btn.forEach((element, index) => {
+          element.innerHTML = '<i class="ri-play-circle-line"></i>';
+        });
+        allSong[currentSongIndex].innerHTML =
+          '<i class="ri-pause-circle-fill"></i>';
+        tempSong = songs[currentSongIndex].songPath;
+        currentSong = tempSong;
+      }
+    });
+
   
   });
 });
