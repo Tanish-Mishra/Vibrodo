@@ -166,7 +166,6 @@ song_card_play_btn.forEach((element, index, allSong) => {
         let songNo1 = null;
         music.play();
         pauseIcon()
-      console.log(music.currentTime)
         for (let i = 0; i < songs.length; i++) {
           if (tempSong == songs[i].songPath) {
             songNo1 = i;
