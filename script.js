@@ -118,7 +118,7 @@ song_card.forEach((element, index) => {
 // To Play the Song
 let music = new Audio("./assets/songs/welcome.wav");
 
-let tempSong;
+let tempSong = null;
 function pauseIcon() {
   play_btn.innerHTML = '<i class="ri-pause-circle-fill"></i>';
 }
@@ -126,22 +126,20 @@ function playIcon() {
   play_btn.innerHTML = '<i class="ri-play-circle-line"></i>';
 }
 
-song_card_play_btn.forEach((element, index,allSong) => {
-
-
+song_card_play_btn.forEach((element, index, allSong) => {
   function cardPauseIcon() {
     element.innerHTML = '<i class="ri-pause-circle-fill"></i>';
   }
   function cardPlayIcon() {
     element.innerHTML = '<i class="ri-play-circle-line"></i>';
   }
-      
-  element.addEventListener("click", () => {
-   // this value should be update evertime to one for previous song 
 
-    progress_bar.value = 0;
+  element.addEventListener("click", () => {
+    // this value should be update evertime to one for previous song
+
     tempSong = songs[index].songPath;
     if (music.paused || music.currentTime <= 0) {
+      progress_bar.value = 0;
       // To set all the elements icon to pause
       song_card_play_btn.forEach((element, index) => {
         element.innerHTML = '<i class="ri-play-circle-line"></i>';
@@ -153,8 +151,7 @@ song_card_play_btn.forEach((element, index,allSong) => {
       song_name.innerHTML = songs[index].songName;
       artist_name.innerHTML = songs[index].artistName;
     } else {
-      progress_bar.value = 0;
-      song_card_play_btn.forEach((element, index,) => {
+      song_card_play_btn.forEach((element, index) => {
         element.innerHTML = '<i class="ri-play-circle-line"></i>';
       });
       music.pause();
@@ -164,58 +161,91 @@ song_card_play_btn.forEach((element, index,allSong) => {
     }
 
     play_btn.addEventListener("click", () => {
-        if (music.paused || music.currentTime <= 0) {
-
-
-          music.play();
-          pauseIcon();
-          cardPauseIcon();
-          // cardPauseIcon();
-        } else {
-          
-          song_card_play_btn.forEach((element, index) => {
-            element.innerHTML = '<i class="ri-play-circle-line"></i>';
-          });
-          music.pause();
-         
-          playIcon();
-          // cardPlayIcon();
-        }
-      });
-
-                     // To Play the Next Song 
-                     let currentIndexSong = 1; // To maintain index of song for previous 
-       prevSong.addEventListener("click", () => {
-        
-        console.log(currentIndexSong)
-                  if(music.currentTime > 0 || music.paused || music.currentTime <= 0) {
-                      
-                      music.src = songs[index-currentIndexSong].songPath 
-                      music.play()
-                      song_name.innerHTML = songs[index-currentIndexSong].songName;
-                     artist_name.innerHTML = songs[index-currentIndexSong].artistName;
-                     song_card_play_btn.forEach((element, index) => {
-                      element.innerHTML = '<i class="ri-play-circle-line"></i>';
-                    });
-                    allSong[index-currentIndexSong].innerHTML = '<i class="ri-pause-circle-fill"></i>';
-                    currentIndexSong++;
-                  console.log(currentIndexSong)
-                    if(currentIndexSong >= index ) {
-                      currentIndexSong = index;
-                    }
-                    pauseIcon();
-
-                  } 
-
-                     });
-                 
+      if (music.paused || music.currentTime <= 0) {
+        music.play();
+        pauseIcon();
+        cardPauseIcon();
+        // cardPauseIcon();
+      } else {
+        song_card_play_btn.forEach((element, index) => {
+          element.innerHTML = '<i class="ri-play-circle-line"></i>';
+        });
+        music.pause();
+        playIcon();
+        // cardPlayIcon();
+      }
     });
 
-  });
-
+    // To Play the Next Song
+    // let currentIndexSong = 1; // To maintain index of song for previous
+    // play_btn.style.visibility = "visible"; // To show the play button when next song is clicked (because code nhi horha h ye issue)
+    // prevSong.addEventListener("click", () => {
+    //   play_btn.style.visibility = "hidden"; // To hide the play button when previous song is clicked
+    //   console.log(currentIndexSong);
+    //   if (music.currentTime > 0 || music.paused || music.currentTime <= 0) {
+    //     progress_bar.value = 0;
+    //     music.src = songs[index - currentIndexSong].songPath;
+    //     music.play();
+    //     song_name.innerHTML = songs[index - currentIndexSong].songName;
+    //     artist_name.innerHTML = songs[index - currentIndexSong].artistName;
+    //     song_card_play_btn.forEach((element, index) => {
+    //       element.innerHTML = '<i class="ri-play-circle-line"></i>';
+    //     });
+    //     allSong[index - currentIndexSong].innerHTML =
+    //       '<i class="ri-pause-circle-fill"></i>';
+    //     currentIndexSong++;
+    //     console.log(currentIndexSong);
+    //     if (currentIndexSong >= index) {
+    //       currentIndexSong = index;
+    //     }
+    //     pauseIcon();
+    //   }
+    //   //  when inside the previous song is clicked
+    // });
   
+    play_btn.style.visibility = "visible";
+    
+    let currentSong = tempSong;
+    let currentSongIndex = null;
+    nextSong.addEventListener("click", () => {
+     
+      play_btn.style.visibility = "hidden";
+      if (music.currentTime > 0 || music.paused || music.currentTime <= 0) {
+     
+      // console.log(currentSongIndex)
+      for(let i = 0; i<songs.length;i++) {
+        if(currentSong == songs[i].songPath) {
+         currentSongIndex = i;
+        }
+      }
+      currentSongIndex = currentSongIndex + 1;
+      console.log(currentSongIndex)
+      if(currentSongIndex >= songs.length - 1) {
+        currentSongIndex = songs.length - 1;
+      }
+      music.src = songs[currentSongIndex].songPath;
+      music.play();
+      song_name.innerHTML = songs[currentSongIndex].songName;
+        artist_name.innerHTML = songs[currentSongIndex].artistName;
+        song_card_play_btn.forEach((element, index) => {
+          element.innerHTML = '<i class="ri-play-circle-line"></i>';
+        });
+        allSong[currentSongIndex].innerHTML = '<i class="ri-pause-circle-fill"></i>';
+        tempSong = songs[currentSongIndex].songPath;
+        console.log(tempSong)
+    }
+     
+    });
+   
 
 
+  });
+});
+
+// To set the progress bar value 0 everytime when we play the song
+music.addEventListener('play',()=> {
+  progress_bar.value = 0;
+})
 
 // To Update the Progress Bar current time is in percentage
 music.addEventListener("timeupdate", () => {
