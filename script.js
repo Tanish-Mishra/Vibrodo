@@ -160,28 +160,7 @@ song_card_play_btn.forEach((element, index, allSong) => {
       cardPlayIcon();
     }
 
-    play_btn.addEventListener("click", () => {
     
-      if (music.currentTime <= 0 || music.paused ) {
-        let songNo1 = null;
-        music.play();
-        pauseIcon()
-        for (let i = 0; i < songs.length; i++) {
-          if (tempSong == songs[i].songPath) {
-            songNo1 = i;
-            allSong[songNo1].innerHTML =   '<i class="ri-pause-circle-fill"></i>';
-            return
-          }
-        }
-      } else {
-        music.pause();
-        playIcon()
-        song_card_play_btn.forEach((element, index) => {
-          element.innerHTML = '<i class="ri-play-circle-line"></i>';
-         })
-       
-      }
-    });
 
    
 
@@ -234,6 +213,7 @@ song_card_play_btn.forEach((element, index, allSong) => {
         }
         music.src = songs[currentSongIndex].songPath;
         music.play();
+        pauseIcon();
         song_name.innerHTML = songs[currentSongIndex].songName;
         artist_name.innerHTML = songs[currentSongIndex].artistName;
         song_card_play_btn.forEach((element, index) => {
@@ -243,11 +223,38 @@ song_card_play_btn.forEach((element, index, allSong) => {
           '<i class="ri-pause-circle-fill"></i>';
         tempSong = songs[currentSongIndex].songPath;
         currentSong = tempSong;
+
       }
     });
   });
 });
 
+play_btn.addEventListener("click", () => {
+    
+  if (music.currentTime <= 0 || music.paused ) {
+    let songNo1 = null;
+    music.play();
+    pauseIcon()
+    for (let i = 0; i < songs.length; i++) {
+      if (tempSong == songs[i].songPath) {
+        songNo1 = i;
+        console.log(songNo1)
+        song_card_play_btn.forEach((element, index,allSong) => {
+          allSong[songNo1].innerHTML =   '<i class="ri-pause-circle-fill"></i>';
+        });
+        
+        return
+      }
+    }
+  } else {
+    music.pause();
+    playIcon()
+    song_card_play_btn.forEach((element, index) => {
+      element.innerHTML = '<i class="ri-play-circle-line"></i>';
+     })
+   
+  }
+});
 // To set the progress bar value 0 everytime when we play the song
 music.addEventListener("play", () => {
   progress_bar.value = 0;
