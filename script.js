@@ -161,72 +161,95 @@ song_card_play_btn.forEach((element, index, allSong) => {
     }
 
     play_btn.addEventListener("click", () => {
+      // song_card_play_btn.forEach((element, index) => {
+      //   element.innerHTML = '<i class="ri-play-circle-line"></i>';
+      // });
+      // let songNo1 = null;
+      // if (music.paused || music.currentTime <= 0) {
+      //   for (let i = 0; i < songs.length; i++) {
+      //     if (tempSong == songs[i].songPath) {
+      //       songNo1 = i;
+      //       console.log(songNo1);
+      //       // allSong[songNo1-1].innerHTML = '<i class="ri-play-circle-fill"></i>';
+      //       allSong[songNo1].innerHTML =   '<i class="ri-pause-circle-fill"></i>';
+      //       break;
+      //     }
+      //   }
+        
+      //   music.src = tempSong;
+      //   music.play();
+      //   pauseIcon();
+      //   cardPauseIcon();
+      // } else {
+      //   song_card_play_btn.forEach((element, index) => {
+      //     element.innerHTML = '<i class="ri-play-circle-line"></i>';
+      //   });
+      //   let songNo2 = null;
+      //   for (let i = 0; i < songs.length; i++) {
+      //     if (tempSong == songs[i].songPath) {
+      //       songNo2 = i;
+      //       if(songNo2 == 0) {
+      //         songNo2 = 0;
+      //       }
+      //       console.log(songNo2);
+      //         allSong[songNo2-1].innerHTML = '<i class="ri-play-circle-fill"></i>'
+      //         allSong[songNo2].innerHTML = '<i class="ri-play-circle-fill"></i>'
+      //       break;
+      //     }
+      //   }
+      //   music.pause();
+      //   playIcon();
+      //   // cardPlayIcon();
+      // }
+
       if (music.paused || music.currentTime <= 0) {
+        let songNo1 = null;
+      if (music.paused || music.currentTime <= 0) {
+        for (let i = 0; i < songs.length; i++) {
+          if (tempSong == songs[i].songPath) {
+            songNo1 = i;
+            console.log(songNo1);
+            // allSong[songNo1-1].innerHTML = '<i class="ri-play-circle-fill"></i>';
+            allSong[songNo1].innerHTML =   '<i class="ri-pause-circle-fill"></i>';
+            break;
+          }
+        }
+      }
         music.play();
-        pauseIcon();
-        cardPauseIcon();
-        // cardPauseIcon();
+        pauseIcon()
       } else {
+         
         song_card_play_btn.forEach((element, index) => {
           element.innerHTML = '<i class="ri-play-circle-line"></i>';
-        });
+         })
         music.pause();
-        playIcon();
-        // cardPlayIcon();
+        playIcon()
       }
     });
-
-    // To Play the Next Song
-    // let currentIndexSong = 1; // To maintain index of song for previous
-    // play_btn.style.visibility = "visible"; // To show the play button when next song is clicked (because code nhi horha h ye issue)
-    // prevSong.addEventListener("click", () => {
-    //   play_btn.style.visibility = "hidden"; // To hide the play button when previous song is clicked
-    //   console.log(currentIndexSong);
-    //   if (music.currentTime > 0 || music.paused || music.currentTime <= 0) {
-    //     progress_bar.value = 0;
-    //     music.src = songs[index - currentIndexSong].songPath;
-    //     music.play();
-    //     song_name.innerHTML = songs[index - currentIndexSong].songName;
-    //     artist_name.innerHTML = songs[index - currentIndexSong].artistName;
-    //     song_card_play_btn.forEach((element, index) => {
-    //       element.innerHTML = '<i class="ri-play-circle-line"></i>';
-    //     });
-    //     allSong[index - currentIndexSong].innerHTML =
-    //       '<i class="ri-pause-circle-fill"></i>';
-    //     currentIndexSong++;
-    //     console.log(currentIndexSong);
-    //     if (currentIndexSong >= index) {
-    //       currentIndexSong = index;
-    //     }
-    //     pauseIcon();
-    //   }
-    //   //  when inside the previous song is clicked
-    // });
 
     play_btn.style.visibility = "visible";
 
     let currentSong = tempSong;
     let currentSongIndex = null;
     nextSong.addEventListener("click", () => {
-      play_btn.style.visibility = "hidden";
+      // play_btn.style.visibility = "hidden";
       if (music.currentTime > 0 || music.paused || music.currentTime <= 0) {
-        // console.log(currentSongIndex)
         for (let i = 0; i < songs.length; i++) {
           if (currentSong == songs[i].songPath) {
             currentSongIndex = i;
-            console.log(currentSongIndex);
+
             currentSongIndex = currentSongIndex + 1;
-            console.log(currentSongIndex);
+
             break;
           }
         }
 
-        console.log(currentSongIndex);
         if (currentSongIndex >= songs.length - 1) {
           currentSongIndex = songs.length - 1;
         }
         music.src = songs[currentSongIndex].songPath;
         music.play();
+        pauseIcon();
         song_name.innerHTML = songs[currentSongIndex].songName;
         artist_name.innerHTML = songs[currentSongIndex].artistName;
         song_card_play_btn.forEach((element, index) => {
@@ -240,20 +263,18 @@ song_card_play_btn.forEach((element, index, allSong) => {
     });
 
     prevSong.addEventListener("click", () => {
-      play_btn.style.visibility = "hidden";
+      // play_btn.style.visibility = "hidden";
       if (music.currentTime > 0 || music.paused || music.currentTime <= 0) {
-        // console.log(currentSongIndex)
         for (let i = 0; i < songs.length; i++) {
           if (currentSong == songs[i].songPath) {
             currentSongIndex = i;
-            console.log(currentSongIndex);
+
             currentSongIndex = currentSongIndex - 1;
-            console.log(currentSongIndex);
+
             break;
           }
         }
 
-        console.log(currentSongIndex);
         if (currentSongIndex <= 0) {
           currentSongIndex = 0;
         }
@@ -270,8 +291,6 @@ song_card_play_btn.forEach((element, index, allSong) => {
         currentSong = tempSong;
       }
     });
-
-  
   });
 });
 
