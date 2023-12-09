@@ -162,28 +162,25 @@ song_card_play_btn.forEach((element, index, allSong) => {
 
     play_btn.addEventListener("click", () => {
     
-      if (music.paused || music.currentTime <= 0) {
+      if (music.currentTime <= 0 || music.paused ) {
         let songNo1 = null;
-     
+        music.play();
+        pauseIcon()
+      console.log(music.currentTime)
         for (let i = 0; i < songs.length; i++) {
           if (tempSong == songs[i].songPath) {
             songNo1 = i;
-            console.log(songNo1);
-            music.play();
-            pauseIcon()
             allSong[songNo1].innerHTML =   '<i class="ri-pause-circle-fill"></i>';
-            break;
+            return
           }
         }
-      
-       
       } else {
-         
+        music.pause();
+        playIcon()
         song_card_play_btn.forEach((element, index) => {
           element.innerHTML = '<i class="ri-play-circle-line"></i>';
          })
-        music.pause();
-        playIcon()
+       
       }
     });
 
