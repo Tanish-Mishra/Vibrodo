@@ -161,62 +161,22 @@ song_card_play_btn.forEach((element, index, allSong) => {
     }
 
     play_btn.addEventListener("click", () => {
-      // song_card_play_btn.forEach((element, index) => {
-      //   element.innerHTML = '<i class="ri-play-circle-line"></i>';
-      // });
-      // let songNo1 = null;
-      // if (music.paused || music.currentTime <= 0) {
-      //   for (let i = 0; i < songs.length; i++) {
-      //     if (tempSong == songs[i].songPath) {
-      //       songNo1 = i;
-      //       console.log(songNo1);
-      //       // allSong[songNo1-1].innerHTML = '<i class="ri-play-circle-fill"></i>';
-      //       allSong[songNo1].innerHTML =   '<i class="ri-pause-circle-fill"></i>';
-      //       break;
-      //     }
-      //   }
-        
-      //   music.src = tempSong;
-      //   music.play();
-      //   pauseIcon();
-      //   cardPauseIcon();
-      // } else {
-      //   song_card_play_btn.forEach((element, index) => {
-      //     element.innerHTML = '<i class="ri-play-circle-line"></i>';
-      //   });
-      //   let songNo2 = null;
-      //   for (let i = 0; i < songs.length; i++) {
-      //     if (tempSong == songs[i].songPath) {
-      //       songNo2 = i;
-      //       if(songNo2 == 0) {
-      //         songNo2 = 0;
-      //       }
-      //       console.log(songNo2);
-      //         allSong[songNo2-1].innerHTML = '<i class="ri-play-circle-fill"></i>'
-      //         allSong[songNo2].innerHTML = '<i class="ri-play-circle-fill"></i>'
-      //       break;
-      //     }
-      //   }
-      //   music.pause();
-      //   playIcon();
-      //   // cardPlayIcon();
-      // }
-
+    
       if (music.paused || music.currentTime <= 0) {
         let songNo1 = null;
-      if (music.paused || music.currentTime <= 0) {
+     
         for (let i = 0; i < songs.length; i++) {
           if (tempSong == songs[i].songPath) {
             songNo1 = i;
             console.log(songNo1);
-            // allSong[songNo1-1].innerHTML = '<i class="ri-play-circle-fill"></i>';
+            music.play();
+            pauseIcon()
             allSong[songNo1].innerHTML =   '<i class="ri-pause-circle-fill"></i>';
             break;
           }
         }
-      }
-        music.play();
-        pauseIcon()
+      
+       
       } else {
          
         song_card_play_btn.forEach((element, index) => {
@@ -227,12 +187,11 @@ song_card_play_btn.forEach((element, index, allSong) => {
       }
     });
 
-    play_btn.style.visibility = "visible";
+   
 
     let currentSong = tempSong;
     let currentSongIndex = null;
     nextSong.addEventListener("click", () => {
-      // play_btn.style.visibility = "hidden";
       if (music.currentTime > 0 || music.paused || music.currentTime <= 0) {
         for (let i = 0; i < songs.length; i++) {
           if (currentSong == songs[i].songPath) {
@@ -263,7 +222,6 @@ song_card_play_btn.forEach((element, index, allSong) => {
     });
 
     prevSong.addEventListener("click", () => {
-      // play_btn.style.visibility = "hidden";
       if (music.currentTime > 0 || music.paused || music.currentTime <= 0) {
         for (let i = 0; i < songs.length; i++) {
           if (currentSong == songs[i].songPath) {
