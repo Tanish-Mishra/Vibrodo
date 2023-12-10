@@ -245,14 +245,14 @@ footer {
    zoom: 0%;
   }
    .input_wrap .search_input::placeholder {
-     font-size: 1.2rem;
+     font-size: 1.1rem;
    }
  
    .input_wrap .search_icon{
  
-     top: 8.8rem;
+     top: 8.9rem;
      left: 1rem;
-     font-size: 2.2rem;
+     font-size: 2rem;
      
    }  
    .container .songs_container {
@@ -272,7 +272,7 @@ footer {
      padding-left: 0;
    }
    body {
-     height: 150vh;
+     height: 0vh;
    }
     .nav_wrapper {
      font-size: 0.45rem;
@@ -309,3 +309,9 @@ footer {
     }
  
  } 
+
+ @media screen and (max-width: 810px) {
+   body {
+     height: 113vh;
+   }
+ }
