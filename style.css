@@ -380,3 +380,9 @@ footer {
     height: 270vh;
   }
 }
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+  main {
+    height: 328vh;
+  }
+}
