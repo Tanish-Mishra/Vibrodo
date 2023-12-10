@@ -240,12 +240,72 @@ footer {
 }
 /* media queryies  */
 
-@media screen and (max-width: 590px) {
-  .input_wrap .search_input::placeholder {
-    font-size: 1.5rem;
+ @media screen and (max-width: 428px) {
+  html {
+   zoom: 0%;
   }
-  .input_wrap .search_icon {
-    font-size: 2rem;
-    top: 9rem;
-  }
-}
+   .input_wrap .search_input::placeholder {
+     font-size: 1.2rem;
+   }
+ 
+   .input_wrap .search_icon{
+ 
+     top: 8.8rem;
+     left: 1rem;
+     font-size: 2.2rem;
+     
+   }  
+   .container .songs_container {
+     display: flex;
+     flex-direction: column;
+   }
+ 
+   .container .song_card {
+     justify-content: flex-start;
+     height: 12rem;
+     width: 100%;
+   }
+   header {
+     padding-left: 0rem;
+   }
+   main {
+     padding-left: 0;
+   }
+   body {
+     height: 100vh;
+   }
+    .nav_wrapper {
+     font-size: 0.45rem;
+    }
+ 
+    #song_name {
+       font-size: 0.58rem;
+    }
+    #artist_name {
+       font-size: 0.58rem;
+    }
+ 
+    .container .song_card .play_icon {
+     position: absolute;
+     top: 0.2rem;
+     left: 80%;
+     font-size: 3.5rem;
+   }
+ 
+   .input_wrap .search_input {
+   
+     width: 99%;
+    
+   }
+   
+ } 
+
+ @media screen and (max-width: 360px) {
+    #song_name {
+       font-size: 0.45rem;
+    }
+    #artist_name {
+       font-size: 0.45rem;
+    }
+ 
+ } 

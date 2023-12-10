@@ -139,7 +139,6 @@ song_card_play_btn.forEach((element, index, allSong) => {
 
     tempSong = songs[index].songPath;
     if (music.paused || music.currentTime <= 0) {
-      progress_bar.value = 0;
       // To set all the elements icon to pause
       song_card_play_btn.forEach((element, index) => {
         element.innerHTML = '<i class="ri-play-circle-line"></i>';
@@ -228,6 +227,8 @@ song_card_play_btn.forEach((element, index, allSong) => {
     });
   });
 });
+ 
+
 
 play_btn.addEventListener("click", () => {
     
@@ -264,6 +265,12 @@ music.addEventListener("play", () => {
 music.addEventListener("timeupdate", () => {
   let currentValue = parseInt((music.currentTime / music.duration) * 100);
   progress_bar.value = currentValue;
+  if (music.currentTime == music.duration) {
+    song_card_play_btn.forEach((element, index) => {
+      element.innerHTML = '<i class="ri-play-circle-line"></i>';
+    });
+    playIcon();
+  }
 });
 
 // To move the song as we move the progress bar  now the value of current time is in seconds
@@ -271,6 +278,8 @@ music.addEventListener("timeupdate", () => {
 progress_bar.addEventListener("change", () => {
   music.currentTime = (progress_bar.value * music.duration) / 100;
 });
+
+
 
 // Search song Functionality
 
