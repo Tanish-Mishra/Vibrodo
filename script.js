@@ -17,6 +17,7 @@ let footSearchIcon = document.querySelector(".foot_search_icon");
 let footLibraryIcon = document.querySelector(".foot_yourlib");
 let nextSong = document.getElementById("next_song");
 let prevSong = document.getElementById("previous_song");
+let first_song_card = document.getElementById("first_song_card");
 // Heart Color Changes to Red When Clicked
 
 heart.addEventListener("click", () => {
@@ -279,23 +280,24 @@ progress_bar.addEventListener("change", () => {
   music.currentTime = (progress_bar.value * music.duration) / 100;
 });
 
+// search functionality
+      // Implemented the Search Functionality 
+input_bar.addEventListener("input", () => {
+  song_card.forEach((element,index) => {
+    element.style.display = "flex";
+})
+  let  inputValue = input_bar.value.trim().toLowerCase();
+   songs.forEach((element,index)=> {
+      if(inputValue == element.songName.toLowerCase()) {
+          song_card.forEach((element,index) => {
+              element.style.display = "none";
+          }) 
+          song_card[index].style.display = "flex";
+          
+      }
+   })
+});
 
 
-// Search song Functionality
 
-// function search() {
-//     let input = input_bar.value;
-//    input =   input.toLowerCase();
-//     let songSearch = document.getElementsByClassName("song_name")
-//     console.log(songSearch)
-//     for(let i = 0; i<input.length;i++ ) {
-//          if(!songSearch[i].innerHTML.toLowerCase().includes(input)) {
-//              document.getElementsByClassName("song_card")[i].style.visibility = "hidden";
-//          }
-//          else {
-//             document.getElementsByClassName("song_card")[i].style.visibility = "visible";
-//          }
-//     }
-// }
 
-// input_bar.addEventListener('keyup', search );

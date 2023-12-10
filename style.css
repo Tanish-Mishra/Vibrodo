@@ -16,6 +16,7 @@ body {
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
 }
+
 header {
   position: fixed;
   width: 100%;
@@ -245,9 +246,6 @@ footer {
     height: 238vh;
     padding-left: 0;
   }
-  html {
-   zoom: 0%;
-  }
    .input_wrap .search_input::placeholder {
      font-size: 1.1rem;
    }
@@ -319,70 +317,5 @@ footer {
  @media screen and (max-width: 412px) {
   main {
     height: 247vh;
-  }
-}
-
-@media screen and (max-height: 915px) {
-  main {
-    height: 238vh;
-  }
-}
-@media screen and (max-height: 883px) {
-  main {
-    height: 246vh;
-  }
-}
-
-@media screen and (max-height: 760px) {
-  main {
-    height: 286vh;
-  }
-}
-
-@media screen and (max-height: 800px) {
-  main {
-    height: 272vh;
-  }
-}
-
-@media screen and (max-height: 854px) {
-  main {
-    height: 256vh;
-  }
-}
-
-@media screen and (max-height: 812px) {
-  main {
-    height: 270vh;
-  }
-}
-
-@media screen and (max-height: 896px) {
-  main {
-    height: 242vh;
-  }
-}
-
-@media screen and (max-height: 896px) {
-  main {
-    height: 258vh;
-  }
-}
-
-@media screen and (max-height: 667px) {
-  main {
-    height: 328vh;
-  }
-}
-
-@media screen and (max-width: 375px) and (max-height: 812px) {
-  main {
-    height: 270vh;
-  }
-}
-
-@media screen and (max-width: 375px) and (max-height: 667px) {
-  main {
-    height: 328vh;
   }
 }
