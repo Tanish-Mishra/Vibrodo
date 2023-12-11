@@ -242,6 +242,7 @@ footer {
  @media screen and (max-width: 428px) {
   main {
     height: 238vh;
+    top: 10rem;
     padding-left: 0;
   }
    .input_wrap .search_input::placeholder {
@@ -288,7 +289,7 @@ footer {
    }
  
    .input_wrap .search_input {
-   
+    height: 3rem;
      width: 99%;
     
    }
