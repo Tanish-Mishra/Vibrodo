@@ -93,14 +93,9 @@ let songs = [
   },
 ];
 
-// this does not work in firefox
+// Import statment with assert does not work in firefox
 //  let  songs = JSON.parse(JSON.stringify(data))
-
-// fetch("./data/songs.json").then((response) => {
-//     return response.json()
-// }).then((data) => {
-//  songs = JSON.parse(JSON.stringify(data))
-// });
+// let songs = null;
 
 // Update Song Name and Artist Name
 song_name_card.forEach((element, index) => {
