@@ -11,7 +11,7 @@
 
 body {
   width: 100vw;
-  height: 150vh;
+  height: 100vh;
   background: var(--color-scheme);
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
@@ -80,7 +80,8 @@ header {
 
 /* Main Styles  */
 main {
-  /* height: calc(100vh + 24rem); */
+  height: 59vh;
+  overflow: scroll;
   position: relative;
   top: 12rem;
   padding-left: 2rem;
@@ -247,7 +248,7 @@ footer {
  @media screen and (max-width: 800px) {
   main {
     /* height: 238vh; */
-    height: calc(100% + 84rem);
+    /* height: calc(100% + 84rem); */
     top: 10rem;
     padding-left: 0;
   }
@@ -296,20 +297,4 @@ footer {
         font-size: 1.1rem;
     }
    
- } 
-
-  @media screen and (max-width: 375px) and (max-height: 667px) {
-
-    main {
-      /* height: 238vh; */
-      height: calc(100% + 90rem);
-     
-    }
- 
- }  
-
-  @media screen and (max-width: 810px) {
-   body {
-     height: 113vh;
-   }
  }
